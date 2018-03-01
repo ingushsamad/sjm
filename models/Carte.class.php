@@ -1,10 +1,9 @@
 <?php
-class Article
+class Carte
 {
 	private $id;
 	private $title;
 	private $content;
-	private $id_author;
 	private $image;
 	private $date;
 	private $pdo;
@@ -34,14 +33,6 @@ class Article
 	{
 		$this->content = $content;
 	}
-	public function getIdAuthor()
-	{
-		return $this->id_author;
-	}
-	public function setIdAuthor($id_author)
-	{
-		$this->id_author = $id_author;
-	}
 	public function getImage()
 	{
 		return $this->image;
@@ -53,16 +44,6 @@ class Article
 	public function getDate()
 	{
 		return $this->date;
-	}
-
-	public function getAuthor()
-	{
-		// Récupération du manager qui gère les utilisateurs
-		$manager = new UserManager($this->pdo);
-
-		// On récupère l'utilisateur qui correspond à l'id de l'auteur
-		$user = $manager->findById($this->id_author);
-		return $user;
 	}
 }
 ?>
