@@ -1,0 +1,21 @@
+
+
+/*GLOBAL */
+* {
+	box-sizing: border-box;
+	outline: none;
+}
+
+body {
+
+	font-size: 1em;
+	margin: 0 auto;
+
+}
+
+html {
+	font-size: 62.5%;
+}
+
+/* HEADER --------------------------------*/
+
