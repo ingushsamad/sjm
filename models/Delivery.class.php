@@ -17,36 +17,36 @@ class Delivery
 		return $this->id;
 	}
 
-	public function getCustomer_name()
+	public function getCustomerName()
 	{
-		return $this->customer_name;
+		return $this->customerName;
 	}
-	public function setCustomer_name($customer_name)
+	public function setCustomerName($customer_name)
 	{
 		$this->customer_name = $customer_name;
 	}	
 
-	public function getCustomer_tel()
+	public function getCustomerTel()
 	{
-		return $this->customer_tel;
+		return $this->customerTel;
 	}
-	public function setCustomer_tel($customer_tel)
+	public function setCustomerTel($customer_tel)
 	{
 		$this->customer_tel = $customer_tel;
 	}	
 
-	public function getCustomer_adress()
+	public function getCustomerAdress()
 	{
-		return $this->customer_adress;
+		return $this->customerAdress;
 	}
 	public function setCustomer_adress($customer_adress)
 	{
 		$this->customer_adress = $customer_adress;
 	}	
 
-	public function getCustomer_city()
+	public function getCustomerCity()
 	{
-		return $this->customer_city;
+		return $this->customerCity;
 	}
 	public function setCustomer_city($customer_city)
 	{
@@ -62,9 +62,9 @@ class Delivery
 		$this->comments = $comments;
 	}
 
-	public function getProduct_id()
+	public function getProductId()
 	{
-		return $this->product_id;
+		return $this->productId;
 	}
 	public function setProduct_id($product_id)
 	{

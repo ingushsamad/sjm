@@ -13,18 +13,18 @@ class Booking
 		return $this->id;
 	}
 
-	public function getCustomer_name()
+	public function getCustomerName()
 	{
-		return $this->customer_name;
+		return $this->customerName;
 	}
 	public function setCustomer_name($customer_name)
 	{
 		$this->customer_name = $customer_name;
 	}	
 
-	public function getCustomer_tel()
+	public function getCustomerTel()
 	{
-		return $this->customer_tel;
+		return $this->customerTel;
 	}
 	public function setCustomer_tel($customer_tel)
 	{
