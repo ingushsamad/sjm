@@ -76,12 +76,3 @@ class DateManager
 	}
 
 }
-
-$dsn = 'mysql:dbname=restaurant;host=192.168.1.91';
-$db_user = "restaurant";
-$db_password = "ULaicha6ei";
-$pdo = new PDO($dsn, $db_user, $db_password);
-require("Date.class.php");
-
-$ex = new DateManager($pdo);
-var_dump($ex->listDate());
