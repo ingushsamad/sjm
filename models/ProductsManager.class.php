@@ -10,7 +10,7 @@ class ProductsManager
 
 	public function find($id)
 	{
-		$query = $this->pdo->prepare("SELECT * FROM products WHERE id=?");
+		$query = $this->pdo->prepare("SELECT * F ROM products WHERE id=?");
 		$query->execute([$id]);
 		$product = $query->fetchObject('Product');
 		return $product;
