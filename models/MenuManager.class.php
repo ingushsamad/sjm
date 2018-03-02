@@ -1,3 +1,5 @@
+<<<<<<< HEAD:models/CarteManager.class.php
+=======
 <?php
 class MenuManager
 {
@@ -54,3 +56,4 @@ class MenuManager
 	}
 }
 ?>
+>>>>>>> 8c091ff08704d80f18eadb253cb9ab9b27f6033b:models/MenuManager.class.php

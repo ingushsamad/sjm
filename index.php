@@ -21,7 +21,7 @@ try
 
 	$error = '';
 	$page = 'home';
-	$access = ['home', 'article', 'create', 'edit', 'register', 'login'];
+	$access = ['home', 'carte'		];
 	
 	if (isset($_GET['page']))
 	{
@@ -39,8 +39,8 @@ try
 	{
 		require('models/'.$classname.'.class.php');
 	});
-	require('apps/traitements/carte.php');
 	require('apps/traitements/user.php');
+	require('apps/traitements/carte.php');
 	require('apps/traitements/comment.php');
 	require('apps/base.php');
 }
