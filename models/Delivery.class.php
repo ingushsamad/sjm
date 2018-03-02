@@ -2,13 +2,13 @@
 class Delivery
 {
 	private $id;
-	private $customer_name;
-	private $customer_tel;
-	private $customer_adress;
-	private $customer_city;
+	private $customerName;
+	private $customerTel;
+	private $customerAdress;
+	private $customerCity;
 	private $comments;
 	private $date;
-	private $product_id;
+	private $productId;
 
 
 
@@ -23,7 +23,7 @@ class Delivery
 	}
 	public function setCustomerName($customer_name)
 	{
-		$this->customer_name = $customer_name;
+		$this->customerName = $customerName;
 	}	
 
 	public function getCustomerTel()
@@ -32,25 +32,25 @@ class Delivery
 	}
 	public function setCustomerTel($customer_tel)
 	{
-		$this->customer_tel = $customer_tel;
+		$this->customerTel = $customerTel;
 	}	
 
 	public function getCustomerAdress()
 	{
 		return $this->customerAdress;
 	}
-	public function setCustomer_adress($customer_adress)
+	public function setCustomerAdress($customerAdress)
 	{
-		$this->customer_adress = $customer_adress;
+		$this->customerAdress = $customerAdress;
 	}	
 
 	public function getCustomerCity()
 	{
 		return $this->customerCity;
 	}
-	public function setCustomer_city($customer_city)
+	public function setCustomerCity($customerCity)
 	{
-		$this->customer_city = $customer_city;
+		$this->customerCity = $customerCity;
 	}	
 
 	public function getComments()
@@ -66,9 +66,9 @@ class Delivery
 	{
 		return $this->productId;
 	}
-	public function setProduct_id($product_id)
+	public function setProductId($productId)
 	{
-		$this->product_id = $product_id;
+		$this->productId = $productId;
 	}	
 
 		public function getDate()
