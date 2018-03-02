@@ -2,32 +2,18 @@
 class Comment
 {
 	private $id;
-	private $id_article;
-	private $id_author;
 	private $content;
-	private $date;
 	private $note;
+	private $author;
+	private $email;
+	private $date;
+
 
 	public function getId()
 	{
 		return $this->id;
 	}
-	public function getIdArticle()
-	{
-		return $this->id_article;
-	}
-	public function setIdArticle($id_article)
-	{
-		$this->id_article = $id_article;
-	}
-	public function getIdAuthor()
-	{
-		return $this->id_author;
-	}
-	public function setIdAuthor($id_author)
-	{
-		$this->id_author = $id_author;
-	}
+
 	public function getContent()
 	{
 		return $this->content;
@@ -35,11 +21,8 @@ class Comment
 	public function setContent($content)
 	{
 		$this->content = $content;
-	}
-	public function getDate()
-	{
-		return $this->date;
-	}
+	}	
+
 	public function getNote()
 	{
 		return $this->note;
@@ -47,6 +30,29 @@ class Comment
 	public function setNote($note)
 	{
 		$this->note = $note;
+	}	
+
+	public function getAuthor()
+	{
+		return $this->author;
+	}
+	public function setIdAuthor($author)
+	{
+		$this->id_author = $author;
+	}
+
+	public function getEmail()
+	{
+		return $this->email;
+	}
+	public function setEmail($email)
+	{
+		$this->email = $email;
+	}
+
+	public function getDate()
+	{
+		return $this->date;
 	}
 }
 ?>

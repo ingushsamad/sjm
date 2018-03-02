@@ -1,5 +1,5 @@
 <?php
-var_dump($_POST);
+
 //exit;
 if (isset($_POST['action']))
 {
