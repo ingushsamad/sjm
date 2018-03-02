@@ -17,21 +17,13 @@ class Carte
 	{
 		return $this->id;
 	}
-	public function getTitle()
+	public function getName()
 	{
-		return $this->title;
+		return $this->name;
 	}
-	public function setTitle($title)
+	public function setName($name)
 	{
-		$this->title = $title;
-	}
-	public function getContent()
-	{
-		return $this->content;
-	}
-	public function setContent($content)
-	{
-		$this->content = $content;
+		$this->name = $name;
 	}
 	public function getImage()
 	{
@@ -41,9 +33,20 @@ class Carte
 	{
 		$this->image = $image;
 	}
-	public function getDate()
+	public function getPrice()
 	{
-		return $this->date;
+		return $this->price;
+	}
+	public function setPrice($price)
+	{
+		$this->price = $price;
+	}public function getPrice()
+	{
+		return $this->price;
+	}
+	public function setPrice($price)
+	{
+		$this->price = $price;
 	}
 }
 ?>
