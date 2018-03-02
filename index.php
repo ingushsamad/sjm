@@ -42,7 +42,7 @@ function __autoload($classname)// Cette fonctionalité est devenue OBSOLETE depu
 	{
 		require('models/'.$classname.'.class.php');
 	});
-	require('apps/traitements/article.php');
+	/*require('apps/traitements/article.php');*/
 	require('apps/traitements/user.php');
 	require('apps/traitements/comment.php');
 	require('apps/base.php');
