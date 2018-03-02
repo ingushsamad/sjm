@@ -11,6 +11,5 @@ class Linkmenu
 	{
 		return $this->id;
 	}
-
-
+}
 ?>
