@@ -2,8 +2,8 @@
 class Booking
 {
 	private $id;
-	private $customer_name;
-	private $customer_tel;
+	private $customerName;
+	private $customerTel;
 	private $date;
 	private $comments;
 
@@ -13,22 +13,22 @@ class Booking
 		return $this->id;
 	}
 
-	public function getCustomer_name()
+	public function getCustomerName()
 	{
-		return $this->customer_name;
+		return $this->customerName;
 	}
-	public function setCustomer_name($customer_name)
+	public function setCustomer_name($customerName)
 	{
-		$this->customer_name = $customer_name;
+		$this->customerName = $customerName;
 	}	
 
-	public function getCustomer_tel()
+	public function getCustomerTel()
 	{
-		return $this->customer_tel;
+		return $this->customerTel;
 	}
-	public function setCustomer_tel($customer_tel)
+	public function setCustomerTel($customerTel)
 	{
-		$this->customer_tel = $customer_tel;
+		$this->customerTel = $customerTel;
 	}	
 
 	public function getDate()

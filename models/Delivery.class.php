@@ -2,13 +2,20 @@
 class Delivery
 {
 	private $id;
+<<<<<<< HEAD
 	private $customer_name;
 	private $customer_tel;
 	private $customer_address;
 	private $customer_city;
+=======
+	private $customerName;
+	private $customerTel;
+	private $customerAdress;
+	private $customerCity;
+>>>>>>> ea2e631abd38167c4e2b66e1e107eec4a8ed1500
 	private $comments;
 	private $date;
-	private $product_id;
+	private $productId;
 
 
 
@@ -19,38 +26,52 @@ class Delivery
 
 	public function getCustomerName()
 	{
-		return $this->customer_name;
+		return $this->customerName;
 	}
 	public function setCustomerName($customer_name)
 	{
-		$this->customer_name = $customer_name;
+		$this->customerName = $customerName;
 	}	
 
 	public function getCustomerTel()
 	{
-		return $this->customer_tel;
+		return $this->customerTel;
 	}
 	public function setCustomerTel($customer_tel)
 	{
-		$this->customer_tel = $customer_tel;
+		$this->customerTel = $customerTel;
 	}	
 
+<<<<<<< HEAD
 	public function getCustomerAddress()
+=======
+	public function getCustomerAdress()
+>>>>>>> ea2e631abd38167c4e2b66e1e107eec4a8ed1500
 	{
-		return $this->customer_adress;
+		return $this->customerAdress;
 	}
+<<<<<<< HEAD
 	public function setCustomerAddress($customer_address)
 	{
 		$this->customer_address = $customer_address;
+=======
+	public function setCustomerAdress($customerAdress)
+	{
+		$this->customerAdress = $customerAdress;
+>>>>>>> ea2e631abd38167c4e2b66e1e107eec4a8ed1500
 	}	
 
 	public function getCustomerCity()
 	{
-		return $this->customer_city;
+		return $this->customerCity;
 	}
+<<<<<<< HEAD
 	public function setCustomerCity($customer_city)
+=======
+	public function setCustomerCity($customerCity)
+>>>>>>> ea2e631abd38167c4e2b66e1e107eec4a8ed1500
 	{
-		$this->customer_city = $customer_city;
+		$this->customerCity = $customerCity;
 	}	
 
 	public function getComments()
@@ -64,11 +85,15 @@ class Delivery
 
 	public function getProductId()
 	{
-		return $this->product_id;
+		return $this->productId;
 	}
+<<<<<<< HEAD
 	public function setProductId($product_id)
+=======
+	public function setProductId($productId)
+>>>>>>> ea2e631abd38167c4e2b66e1e107eec4a8ed1500
 	{
-		$this->product_id = $product_id;
+		$this->productId = $productId;
 	}	
 
 		public function getDate()
