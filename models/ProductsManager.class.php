@@ -1,5 +1,5 @@
 <?php
-class CommentManager
+class ProductsManager
 {
 	private $pdo;
 
@@ -10,52 +10,59 @@ class CommentManager
 
 	public function find($id)
 	{
-		$query = $this->pdo->prepare("SELECT * FROM comments WHERE id=?");
+		$query = $this->pdo->prepare("SELECT * FROM products WHERE id=?");
 		$query->execute([$id]);
-		$comment = $query->fetchObject('Comment');
-		return $comment;
+		$product = $query->fetchObject('Product');
+		return $product;
 	}
 	public function findAll()
 	{
-		$query = $this->pdo->query("SELECT * FROM comments");
-		$comments = $query->fetchAll(PDO::FETCH_CLASS, 'Comment');
-		return $comments;
+		$query = $this->pdo->query("SELECT * FROM products");
+		$products = $query->fetchAll(PDO::FETCH_CLASS, 'Products');
+		return $products;
 	}
-	public function findByIdArticle($id)
+	public function findByCategoryId($id)
 	{
-		$query = $this->pdo->prepare("SELECT * FROM comments WHERE id_article=?");
+		$query = $this->pdo->prepare("SELECT * FROM products WHERE categroy_id=?");
 		$query->execute([$id]);
-		$comments = $query->fetchAll(PDO::FETCH_CLASS, 'Comment');
-		return $comments;
+		$products = $query->fetchAll(PDO::FETCH_CLASS, 'Products');
+		return $products;
 	}
-	public function findByIdAuthor($id)
+	public function findByName($id)
 	{
-		$query = $this->pdo->prepare("SELECT * FROM comments WHERE id_author=?");
+		$query = $this->pdo->prepare("SELECT * FROM products WHERE name=?");
 		$query->execute([$id]);
-		$comments = $query->fetchAll(PDO::FETCH_CLASS, 'Comment');
-		return $comments;
+		$products = $query->fetchAll(PDO::FETCH_CLASS, 'Products');
+		return $products;
+	}
+    public function findByPrice($id)
+	{
+		$query = $this->pdo->prepare("SELECT * FROM products WHERE price=?");
+		$query->execute([$id]);
+		$products = $query->fetchAll(PDO::FETCH_CLASS, 'Products');
+		return $products;
 	}
 	public function findById($id)
 	{
 		return $this->find($id);
 	}
-	public function remove(Comment $comment)// <= type hinting
+	public function remove(Products $products)// <= type hinting
 	{
-		$query = $this->pdo->prepare("DELETE FROM comments WHERE id=?");
-		$query->execute([$comment->getId()]);
+		$query = $this->pdo->prepare("DELETE FROM products WHERE id=?");
+		$query->execute([$products->getId()]);
 	}
-	public function create($content, $id_author, $id_article)
+	/*public function create($content, $id_author, $id_article)
 	{
 		$query = $this->pdo->prepare("INSERT INTO comments (content, id_author, id_article) VALUES(?, ?, ?)");
 		$query->execute([$content, $id_author, $id_article]);
 		$id = $this->pdo->lastInsertId();
 		return $this->find($id);
-	}
-	public function save(Comment $comment)// <= type hinting
+	}*/
+	public function save(Products $products)// <= type hinting
 	{
-		$query = $this->pdo->prepare("UPDATE comments SET content=?, id_author=?, id_article=?, note=? WHERE id=?");
-		$query->execute([$comment->getContent(), $comment->getIdAuthor(), $comment->getIdArticle(), $comment->getNote(), $comment->getId()]);
-		return $this->find($comment->getId());
+		$query = $this->pdo->prepare("UPDATE products SET name=?, image=?, category_id=?, price=? WHERE id=?");
+		$query->execute([$products->getContent(), $products->getIdAuthor(), $products->getIdArticle(), $products->getNote(), $products->getId()]);
+		return $this->find($products->getId());
 	}
 }
 ?>

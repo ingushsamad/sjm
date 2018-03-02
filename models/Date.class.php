@@ -9,17 +9,14 @@ class Date
 	{
 		$this->pdo = $pdo;
 	}
-
 	public function getId()
 	{
 		return $this->id;
 	}
-
 	public function getDate()
 	{
 		return $this->date;
 	}
-
 	public function getMiday()
 	{
 		return $this->miday;
@@ -32,5 +29,10 @@ class Date
 	{
 		$this->miday;
 	}
+	public function setMiday($name)
+	{
+		$this->miday = $miday;
+	}	
 }
 ?>
+
