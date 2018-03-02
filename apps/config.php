@@ -2,8 +2,7 @@
 
 /* Configuration SQL */
 
-$dsn = 'mysql:dbname=testdb;host=127.0.0.1';
-$db_host = "192.168.1.91";
+$dsn = 'mysql:dbname=restaurant;host=localhost';
 $db_user = "restaurant";
 $db_password = "ULaicha6ei";
 
