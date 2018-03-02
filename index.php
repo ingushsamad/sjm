@@ -39,7 +39,7 @@ try
 	{
 		require('models/'.$classname.'.class.php');
 	});
-	require('apps/traitements/article.php');
+	require('apps/traitements/carte.php');
 	require('apps/traitements/user.php');
 	require('apps/traitements/comment.php');
 	require('apps/base.php');
