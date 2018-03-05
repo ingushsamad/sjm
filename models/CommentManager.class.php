@@ -42,10 +42,10 @@ class CommentManager
 		$query->execute([$comment->getId()]);
 	}
 
-	public function create($content, $id_author)
+	public function create($content, $id_author, $note)
 	{
-		$query = $this->pdo->prepare("INSERT INTO comments (content, id_author) VALUES(?, ?, ?)");
-		$query->execute([$content, $id_author]);
+		$query = $this->pdo->prepare("INSERT INTO comments (content, id_author, note) VALUES(?, ?, ?)");
+		$query->execute([$content, $id_author, $note]);
 		$id = $this->pdo->lastInsertId();
 		return $this->find($id);
 	}

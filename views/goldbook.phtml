@@ -1,4 +1,24 @@
 <!---  GOLDBOOK   mettre en commun a toutes les pages ---->
+<h2>Réservation</h2>
+<form method="POST" id="booking">
+	<input type="hidden" name="action" value="delivery">
+	<fieldset>
+		<legend>Coordonnées</legend>
+		<label for="name">Nom :</label><input type="text" name="name" placeholder="Votre nom" id="name"><br>
+		<label for="tel">Tél :</label><input type="text" name="email" placeholder="Votre numéro de téléphone" id="tel"><br>
 
+	</fieldset>
+	<fieldset>
+		<label for="comment">Commentaire :</label><textarea id="comment" rows=10 cols=90 placeholder="Un commentaire ?"></textarea>
+	</fieldset>
+	<fieldset>
+		<legend>Note</legend>
+		<label for="date">Date de réservation :</label><input type="datetime-local" name="date" id="date" value="">
+	</fieldset>
+	<input type="number" min="0" max="5">
+	<fieldset>
+		<button type="submit">Poster</button>
+	</fieldset>
+</form>
 
 
