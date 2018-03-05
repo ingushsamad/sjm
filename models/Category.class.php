@@ -3,7 +3,12 @@ class Category
 {
 	private $id;
 	private $name;
+	private $pdo;
 
+	public function __construct($pdo)
+	{
+		$this->pdo = $pdo;
+	}
 	public function getId()
 	{
 		return $this->id;
@@ -15,7 +20,13 @@ class Category
 	public function setName($name)
 	{
 		$this->name = $name;
-	}	
+	}
+	public function getProducts()
+	{
+		$manager = new ProductsManager($this->pdo);
+		$products = $manager->findByCategory($this->id);
+		return $products;
+	}
 
 }
 ?>

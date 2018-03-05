@@ -11,20 +11,13 @@ class CategoryManager
 	{
 		$query = $this->pdo->prepare("SELECT * FROM category WHERE id=?");
 		$query->execute([$id]);
-		$product = $query->fetchObject('Category');
+		$product = $query->fetchObject('Category',[$this->pdo]);
 		return $product;
 	}
 	public function findAll() // toutes les catégories même vides
 	{
 		$query = $this->pdo->query("SELECT * FROM category");
-		$categories = $query->fetchAll(PDO::FETCH_CLASS, 'Category');
-		return $categories;
-	}
-	public function findAllNotEmpty()
-	{
-		$manager = new ProductsManager($this->pdo);
-		$query = $this->pdo->query("SELECT * FROM category where id IN (".implode(",",$manager->listCategory()).")");
-		$categories = $query->fetchAll(PDO::FETCH_CLASS, 'Category');
+		$categories = $query->fetchAll(PDO::FETCH_CLASS, 'Category',[$this->pdo]);
 		return $categories;
 	}
 
@@ -32,7 +25,7 @@ class CategoryManager
 	{
 		$query = $this->pdo->prepare("SELECT * FROM category WHERE name = ?");
 		$query->execute([$name]);
-		$category = $query->fetchAll(PDO::FETCH_CLASS, 'Category');
+		$category = $query->fetchAll(PDO::FETCH_CLASS, 'Category',[$this->pdo]);
 		return $category;
 	}
     public function findById($id)
