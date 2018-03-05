@@ -20,14 +20,24 @@ body {
 	padding: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+
+header,
+footer {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: 'Cinzel Decorative', cursive;
+		font-weight: 200;
+	}
+}
+
+main h1 {
 	font-family: 'Cinzel Decorative', cursive;
-	font-weight: 200;
+	border-bottom: 1px solid $color-primary-4;
+	text-align: center;
 }
 
 a {
@@ -204,6 +214,51 @@ main {
 		}
 		button {
 			border: 1px solid $color-primary-3;
+		}
+	}
+}
+
+#error {
+	color: $col-error;
+	border: 1px dashed $col-error;
+	border-radius: 2em;
+	text-align: center;
+	width: 50%;
+	padding: 0 1em;
+	margin: 0 auto 2em;
+	h2 {
+		font-weight: 900;
+	}
+}
+
+.products {
+	border: 1px solid $color-primary-3;
+	border-radius: 1em;
+	margin-bottom: 2em;
+	legend {
+		font-size: 1.4em;
+		text-align: center;
+		display: block;
+		width: 50%;
+		background-color: $color-primary-3;
+		border-radius: 1em;
+		color: $color-primary-1;
+		padding: 0.2em
+	}
+	section {
+		display: flex;
+		article {
+			flex-basis: 20%;
+			padding: 1em;
+			h4 {
+				font-weight: 900;
+			}
+			img {
+				max-width: 100%;
+				border-radius: 1em;
+				border: 1px solid $color-primary-3;
+			}
+
 		}
 	}
 }
