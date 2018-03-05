@@ -15,15 +15,15 @@ if (isset($_POST['action']))
 		{
 			$login = $_POST['login'];
 			$password = $_POST['password'];
-			// ETAPE 3
+
 			$manager = new UserManager($pdo);
 			$user = $manager->findByLogin($login);
 			if ($user)
 			{
 				if ($user->verifPassword($password))
 				{
-					$_SESSION['id'] = $user->getId();// J'enregistre dans la session le numéro de l'utilisateur connecté
-					$_SESSION['login'] = $user->getLogin();// J'enregistre aussi son login
+					$_SESSION['id'] = $user->getId();
+					$_SESSION['login'] = $user->getLogin();
 					header('Location: index.php');
 					exit;
 				}
@@ -38,9 +38,9 @@ if (isset($_POST['action']))
 			$login = $_POST['login'];
 			$password = $_POST['password'];
 			$email = $_POST['email'];
-			// ETAPE 3
+
 			$manager = new UserManager($pdo);
-			//
+
 			try
 			{
 				$user = $manager->create($login, $password, $email);

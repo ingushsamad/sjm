@@ -6,7 +6,6 @@ class Products
 	private $image;
 	private $price;
 	private $category_id;
-	private $pdo;
 
 	public function getId()
 	{
@@ -36,11 +35,11 @@ class Products
 	{
 		$this->price = $price;
 	}
-	public function getCategory()
+	public function getCategoryId()
 	{
-		return $category_id;
+		return $this->category_id;
 	}
-	public function setCatergory($id)
+	public function setCatergoryId($id)
 	{
 		$this->category_id = $id;
 	}
