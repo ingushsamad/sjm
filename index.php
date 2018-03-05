@@ -21,7 +21,7 @@ try
 
 	$error = '';
 	$page = 'home';
-	$access = ['home', 'carte'		];
+	$access = ['home', 'carte','delivery','booking'];
 	
 	if (isset($_GET['page']))
 	{
