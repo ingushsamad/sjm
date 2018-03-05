@@ -28,15 +28,11 @@ a {
   color: #B08769;
   text-decoration: none;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  transition: all 1s 1s;
 }
 
 a:hover, a:active, a:focus {
   color: white;
-}
-
-header > div {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 header {
@@ -48,9 +44,8 @@ header {
 }
 
 header section {
-  background: #1A263C;
+  background: #1A263C url("../img/backheader.png") center bottom no-repeat;
   background-clip: content-box;
-  background-size: 12%;
   margin: 0;
   padding: 0;
   display: flex;
@@ -77,10 +72,7 @@ header section img {
   flex: 0 1 20%;
   padding: 1em;
 }
-header h1 img{
-    padding: 0;
-    margin: 0;
-}
+
 header section nav {
   flex: 0 1 100%;
   display: flex;
@@ -161,7 +153,7 @@ footer > section {
 }
 
 main {
-  background-color: #B08769;
+  background: #B08769;
   padding: 1em;
   height: 100%;
 }
@@ -194,5 +186,48 @@ main {
   background-color: white;
   padding: 3px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+#booking fieldset,
+#delivery fieldset {
+  border: 1px solid #3E230F;
+  border-radius: 1em;
+  width: 60%;
+  margin: 0 auto 1em;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+#booking fieldset p,
+#delivery fieldset p {
+  display: flex;
+}
+
+#booking fieldset legend,
+#delivery fieldset legend {
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+#booking fieldset label,
+#delivery fieldset label {
+  text-align: right;
+  padding-right: 1em;
+}
+
+#booking fieldset input,
+#delivery fieldset input {
+  border: 1px solid #3E230F;
+}
+
+#booking fieldset textarea,
+#delivery fieldset textarea {
+  border: 1px solid #3E230F;
+}
+
+#booking fieldset button,
+#delivery fieldset button {
+  border: 1px solid #3E230F;
 }
 /*# sourceMappingURL=main.css.map */
