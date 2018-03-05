@@ -10,9 +10,9 @@ class ProductsManager
 
 	public function find($id)
 	{
-		$query = $this->pdo->prepare("SELECT * F ROM products WHERE id=?");
+		$query = $this->pdo->prepare("SELECT * FROM products WHERE id=?");
 		$query->execute([$id]);
-		$product = $query->fetchObject('Product');
+		$product = $query->fetchObject('Products');
 		return $product;
 	}
 	public function findAll()
@@ -21,23 +21,23 @@ class ProductsManager
 		$products = $query->fetchAll(PDO::FETCH_CLASS, 'Products');
 		return $products;
 	}
-	public function findByCategoryId($id)
+	public function findByCategory($id)
 	{
-		$query = $this->pdo->prepare("SELECT * FROM products WHERE categroy_id=?");
+		$query = $this->pdo->prepare("SELECT * FROM products WHERE category_id = ? ORDER BY name");
 		$query->execute([$id]);
 		$products = $query->fetchAll(PDO::FETCH_CLASS, 'Products');
 		return $products;
 	}
-	public function findByName($id)
+	public function findByName($name)
 	{
-		$query = $this->pdo->prepare("SELECT * FROM products WHERE name=?");
-		$query->execute([$id]);
+		$query = $this->pdo->prepare("SELECT * FROM products WHERE name = ?");
+		$query->execute([$name]);
 		$products = $query->fetchAll(PDO::FETCH_CLASS, 'Products');
 		return $products;
 	}
-    public function findByPrice($id)
+	public function findByPrice($id)
 	{
-		$query = $this->pdo->prepare("SELECT * FROM products WHERE price=?");
+		$query = $this->pdo->prepare("SELECT * FROM products WHERE price = ?");
 		$query->execute([$id]);
 		$products = $query->fetchAll(PDO::FETCH_CLASS, 'Products');
 		return $products;
@@ -46,9 +46,9 @@ class ProductsManager
 	{
 		return $this->find($id);
 	}
-	public function remove(Products $products)// <= type hinting
+	public function remove(Product $products)
 	{
-		$query = $this->pdo->prepare("DELETE FROM products WHERE id=?");
+		$query = $this->pdo->prepare("DELETE FROM products WHERE id = ?");
 		$query->execute([$products->getId()]);
 	}
 	/*public function create($content, $id_author, $id_article)
@@ -58,9 +58,9 @@ class ProductsManager
 		$id = $this->pdo->lastInsertId();
 		return $this->find($id);
 	}*/
-	public function save(Products $products)// <= type hinting
+	public function save(Product $products)
 	{
-		$query = $this->pdo->prepare("UPDATE products SET name=?, image=?, category_id=?, price=? WHERE id=?");
+		$query = $this->pdo->prepare("UPDATE products SET name = ?, image = ?, category_id = ?, price = ? WHERE id = ?");
 		$query->execute([$products->getContent(), $products->getIdAuthor(), $products->getIdArticle(), $products->getNote(), $products->getId()]);
 		return $this->find($products->getId());
 	}

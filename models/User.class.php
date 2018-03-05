@@ -1,6 +1,6 @@
 <?php
 // User.class.php : http://192.168.1.22/partage/User.class.php
-class Users
+class User
 {
 	// Propriétés (variables)
 	private $id;// private = protégé de l'extérieur => encapsulation

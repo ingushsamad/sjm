@@ -5,6 +5,8 @@ if (isset($_GET['page']) && $_GET['page'] == 'logout')
 	header('Location: index.php');
 	exit;
 }
+$manager = new UserManager($pdo);
+
 
 if (isset($_POST['action']))
 {
@@ -15,18 +17,25 @@ if (isset($_POST['action']))
 		{
 			$login = $_POST['login'];
 			$password = $_POST['password'];
-			// ETAPE 3
+
 			$manager = new UserManager($pdo);
 			$user = $manager->findByLogin($login);
 			if ($user)
 			{
 				if ($user->verifPassword($password))
 				{
-					$_SESSION['id'] = $user->getId();// J'enregistre dans la session le numéro de l'utilisateur connecté
-					$_SESSION['login'] = $user->getLogin();// J'enregistre aussi son login
+					$_SESSION['id'] = $user->getId();
 					header('Location: index.php');
 					exit;
 				}
+				else
+				{
+					$error = "L'utilisateur ou le mot de passe est incorrect.";
+				}
+			}
+			else
+			{
+				$error = "L'utilisateur ou le mot de passe est incorrect.";
 			}
 		}
 	}
@@ -38,9 +47,9 @@ if (isset($_POST['action']))
 			$login = $_POST['login'];
 			$password = $_POST['password'];
 			$email = $_POST['email'];
-			// ETAPE 3
+
 			$manager = new UserManager($pdo);
-			//
+
 			try
 			{
 				$user = $manager->create($login, $password, $email);
@@ -52,7 +61,7 @@ if (isset($_POST['action']))
 			//
 			if (!$error)
 			{
-				header('Location: index.php?page=login');
+				header('Location: index.php');
 				exit;
 			}
 		}

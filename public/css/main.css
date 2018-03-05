@@ -14,25 +14,38 @@ body {
   padding: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+header h1,
+header h2,
+header h3,
+header h4,
+header h5,
+header h6,
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer h6 {
   font-family: 'Cinzel Decorative', cursive;
   font-weight: 200;
+}
+
+main h1 {
+  font-family: 'Cinzel Decorative', cursive;
+  border-bottom: 1px solid #200F02;
+  text-align: center;
 }
 
 a {
   color: #B08769;
   text-decoration: none;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  transition: all 1s 1s;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s;
 }
 
-a:hover, a:active, a:focus {
+header nav a:hover {
   color: white;
+  transform: scale(1.2, 1.2);
 }
 
 header {
@@ -71,6 +84,9 @@ header section div h2 {
 header section img {
   flex: 0 1 20%;
   padding: 1em;
+  min-width: 0;
+  min-height: 0;
+  height: 200px;
 }
 
 header section nav {
@@ -228,6 +244,59 @@ main {
 
 #booking fieldset button,
 #delivery fieldset button {
+  border: 1px solid #3E230F;
+}
+
+#error {
+  color: #a30000;
+  border: 1px dashed #a30000;
+  border-radius: 2em;
+  text-align: center;
+  width: 50%;
+  padding: 0 1em;
+  margin: 0 auto 2em;
+}
+
+#error h2 {
+  font-weight: 900;
+}
+
+.products {
+  border: 1px solid #3E230F;
+  border-radius: 1em;
+  margin-bottom: 2em;
+}
+
+.products legend {
+  font-size: 1.4em;
+  text-align: center;
+  display: block;
+  width: 50%;
+  background-color: #3E230F;
+  border-radius: 1em;
+  color: #B08769;
+  padding: 0.2em;
+}
+
+.products section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.products section article {
+  flex-basis: 20%;
+  padding: 1em;
+}
+
+.products section article h4 {
+  font-weight: 900;
+}
+
+.products section article img {
+  max-width: 100%;
+  border-radius: 1em;
   border: 1px solid #3E230F;
 }
 /*# sourceMappingURL=main.css.map */
