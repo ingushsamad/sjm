@@ -71,6 +71,9 @@ header section div h2 {
 header section img {
   flex: 0 1 20%;
   padding: 1em;
+  min-width: 0;
+  min-height: 0;
+  height: 200px;
 }
 
 header section nav {
