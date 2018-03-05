@@ -1,1 +1,8 @@
-<?php require('views/carte.phtml'); ?>
+<?php
+
+$manager = new CategoryManager($pdo);
+$categorys = $manager->findAll();
+
+foreach ($categorys as $category)
+	require('views/carte.phtml');
+?>

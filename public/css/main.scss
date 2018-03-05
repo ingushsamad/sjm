@@ -76,6 +76,9 @@ header {
 		img {
 			flex: 0 1 20%;
 			padding: 1em;
+			min-width: 0;
+			min-height: 0;
+			height: 200px;
 		}
 		nav {
 			flex: 0 1 100%;
