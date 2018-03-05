@@ -1,10 +1,8 @@
 <?php
 class UserManager
 {
-	// Création d'une propriété pdo
 	private $pdo;
 
-	// A la création je passe un paramètre pdo à mon objet
 	public function __construct($pdo)
 	{
 		$this->pdo = $pdo;

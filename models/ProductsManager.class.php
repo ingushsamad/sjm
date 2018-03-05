@@ -23,7 +23,7 @@ class ProductsManager
 	}
 	public function findByCategoryId($id)
 	{
-		$query = $this->pdo->prepare("SELECT * FROM products WHERE category_id = ?");
+		$query = $this->pdo->prepare("SELECT * FROM products WHERE category_id = ? ORDER BY name");
 		$query->execute([$id]);
 		$products = $query->fetchAll(PDO::FETCH_CLASS, 'Products');
 		return $products;
