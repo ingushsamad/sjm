@@ -6,6 +6,7 @@ if (isset($_GET['page']) && $_GET['page'] == 'logout')
 	exit;
 }
 
+
 if (isset($_POST['action']))
 {
 	$action = $_POST['action'];
@@ -23,10 +24,17 @@ if (isset($_POST['action']))
 				if ($user->verifPassword($password))
 				{
 					$_SESSION['id'] = $user->getId();
-					$_SESSION['login'] = $user->getLogin();
 					header('Location: index.php');
 					exit;
 				}
+				else
+				{
+					$error = "L'utilisateur ou le mot de passe est incorrect.";
+				}
+			}
+			else
+			{
+				$error = "L'utilisateur ou le mot de passe est incorrect.";
 			}
 		}
 	}
@@ -52,7 +60,7 @@ if (isset($_POST['action']))
 			//
 			if (!$error)
 			{
-				header('Location: index.php?page=login');
+				header('Location: index.php');
 				exit;
 			}
 		}
