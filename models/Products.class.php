@@ -1,17 +1,11 @@
 <?php
-class Carte
+class Products
 {
 	private $id;
-	private $title;
-	private $content;
+	private $name;
 	private $image;
-	private $date;
-	private $pdo;
-
-	public function __construct($pdo)
-	{
-		$this->pdo = $pdo;
-	}
+	private $price;
+	private $category_id;
 
 	public function getId()
 	{
@@ -40,13 +34,14 @@ class Carte
 	public function setPrice($price)
 	{
 		$this->price = $price;
-	}public function getPrice()
-	{
-		return $this->price;
 	}
-	public function setPrice($price)
+	public function getCategoryId()
 	{
-		$this->price = $price;
+		return $this->category_id;
+	}
+	public function setCatergoryId($id)
+	{
+		$this->category_id = $id;
 	}
 }
 ?>

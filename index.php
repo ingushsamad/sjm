@@ -21,7 +21,7 @@ try
 
 	$error = '';
 	$page = 'home';
-	$access = ['home', 'carte'		];
+	$access = ['home', 'carte','delivery','booking'];
 	
 	if (isset($_GET['page']))
 	{
@@ -35,10 +35,12 @@ try
 			throw new Exception('La page n\'existe pas');
 		}
 	}
+	
 	spl_autoload_register(function($classname)
 	{
 		require('models/'.$classname.'.class.php');
 	});
+	
 	require('apps/traitements/user.php');
 	require('apps/traitements/carte.php');
 	require('apps/traitements/comment.php');
