@@ -1,8 +1,12 @@
 <?php
 
 $manager = new CategoryManager($pdo);
-$categorys = $manager->findAllNotEmpty();
+$categories = $manager->findAll();
 
-foreach ($categorys as $category)
-	require('views/carte.phtml');
+foreach ($categories as $category)
+{
+	$products = $category->getProducts();
+	if (sizeof($products) > 0)
+		require('views/carte.phtml');
+}
 ?>

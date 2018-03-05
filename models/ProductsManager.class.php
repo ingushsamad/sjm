@@ -21,7 +21,7 @@ class ProductsManager
 		$products = $query->fetchAll(PDO::FETCH_CLASS, 'Products');
 		return $products;
 	}
-	public function findByCategoryId($id)
+	public function findByCategory($id)
 	{
 		$query = $this->pdo->prepare("SELECT * FROM products WHERE category_id = ? ORDER BY name");
 		$query->execute([$id]);
@@ -45,16 +45,6 @@ class ProductsManager
 	public function findById($id)
 	{
 		return $this->find($id);
-	}
-	public function listCategory()
-	{
-		$query = $this->pdo->query("SELECT category_id FROM products GROUP BY category_id");
-		$arraycategories = array();
-		$categories = ($query->fetchAll(PDO::FETCH_CLASS, 'Products'));
-		foreach ($categories AS $category)
-			$arraycategories[] = $category->getCategoryId();
-		return $arraycategories;
-
 	}
 	public function remove(Product $products)
 	{
