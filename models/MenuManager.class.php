@@ -45,17 +45,17 @@ class MenuManager
 	}
 	public function save(Menu $menu)// <= type hinting
 	{
-		$query = $this->pdo->prepare("UPDATE menu SET order_number=?, order_date=?, customer_id=? WHERE order_number=?");
-		$query->execute([$menu->getOrderNumber(), $menu->getOrderDate(), $menu->getCustomerId()]);
+		$query = $this->pdo->prepare("UPDATE menu SET name=?, description=?, discount=? WHERE id=?");
+		$query->execute([$menu->getName(), $menu->getDescription(), $menu->getDiscount(), $menu->getId()]);
 		$products = $menu->getProducts();
-		$query_reset = $this->pdo->prepare("DELETE FROM menu WHERE order_number=?");
-		$query_reset->prepare([$menu->getOrderNumber()]);
-		$query_save = $this->pdo->prepare("INSERT INTO menu (order_Number, products_id) VALUES(?, ?)");
+		$query_reset = $this->pdo->prepare("DELETE FROM menu WHERE id=?");
+		$query_reset->prepare([$menu->getId()]);
+		$query_save = $this->pdo->prepare("INSERT INTO menu (name, description, discount) VALUES(?, ?, ?)");
 		foreach ($menu->getProducts() AS $product)
 		{
-			$query_save->execute([$menu->getOrderNumber(), $product->getProductId()]);
+			$query_save->execute([$menu->getName(), $menu->getDescription(), $menu->getDiscount()]);
 		}
-		return $this->find($menu->getOrderNumber());
+		return $this->find($menu->getId());
 	}
 }
 ?>
