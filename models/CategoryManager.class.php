@@ -39,17 +39,19 @@ class CategoryManager
 		$query = $this->pdo->prepare("DELETE FROM category WHERE id = ?");
 		$query->execute([$category->getId()]);
 	}
-	/*public function create($content, $id_author, $id_article)
+	public function create($name)
 	{
-		$query = $this->pdo->prepare("INSERT INTO comments (content, id_author, id_article) VALUES(?, ?, ?)");
-		$query->execute([$content, $id_author, $id_article]);
+		$category = new Category($this->pdo);
+		$category->setName($name);
+		$query = $this->pdo->prepare("INSERT INTO category (name) VALUES(?)");
+		$query->execute([$category->getName()]);
 		$id = $this->pdo->lastInsertId();
 		return $this->find($id);
-	}*/
+	}
 	public function save(Category $category)
 	{
-		$query = $this->pdo->prepare("UPDATE category SET name = ?, image = ?, category_id = ?, price = ? WHERE id = ?");
-		$query->execute([$category->getContent(), $category->getIdAuthor(), $category->getIdArticle(), $category->getNote(), $category->getId()]);
+		$query = $this->pdo->prepare("UPDATE category SET name=?,  WHERE id = ?");
+		$query->execute([$category->getName(), $category->getId()]);
 		return $this->find($category->getId());
 	}
 }

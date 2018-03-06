@@ -5,7 +5,7 @@ if (isset($_POST['action']))
 {
 	$manager = new CommentManager($pdo);
 	$action = $_POST['action'];
-	if ($action == 'create')
+	if ($action == 'createcomments')
 	{
 		// Etape 1 : Vérifier la présence de tous les champs nécessaires
 		// title, content, image, author
@@ -15,7 +15,7 @@ if (isset($_POST['action']))
 			
 			$content = $_POST['content'];
 			$author = $_POST['author'];
-			$author = $_POST['note'];
+			$note = $_POST['note'];
 			//$author = $_SESSION['id'];
 
 			$manager->create($content, $author, $note);
