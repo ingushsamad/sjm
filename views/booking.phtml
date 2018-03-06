@@ -1,38 +1,15 @@
-<<<<<<< HEAD
-<!---  RESERVE   mettre en commun a toutes les pages ---->
-<h1>Reservation</h1>
-<form method="POST" class="delivery">
-	<input type="hidden" name="action" value="delivery">
-	<div>
-		Nom : <input type="text" name="Name" placeholder="Name">
-	</div>
-	<div>
-		Tel : <input type="text" name="Tel" placeholder="Tel">
-	</div>
-	<div>
-		Commentaire : <textarea></textarea>
-	</div>
-	<div>
-		Date : <input type="datetime-local" name="date" placeholder="Date">
-	</div>
-	<div>
-		<input type="submit" value="Réserver ! ">
-	</div>
-</form>
-
-=======
 <h2>Réservation</h2>
 <form method="POST" id="booking">
-	<input type="hidden" name="action" value="delivery">
+	<input type="hidden" name="booking" value="booking">
 	<fieldset>
 		<legend>Coordonnées</legend>
-		<label for="name">Nom :</label><input type="text" name="name" placeholder="Votre nom" id="name">
-		<label for="tel">Tél :</label><input type="text" name="tel" placeholder="Votre numéro de téléphone" id="tel">
-		<label for="address">Adresse :</label><input type="text" name="address" placeholder="Votre adresse" id="address">
-		<label for="city">Ville :</label><input type="text" name="city" placeholder="Votre ville" id="city">
+		<label for="name">Nom :</label><input type="text" name="customer_name" placeholder="Votre nom" id="name">
+		<label for="tel">Tél :</label><input type="text" name="customer_tel" placeholder="Votre numéro de téléphone" id="tel">
+		<label for="address">Adresse :</label><input type="text" name="customer_address" placeholder="Votre adresse" id="address">
+		<label for="city">Ville :</label><input type="text" name="customer_city" placeholder="Votre ville" id="city">
 	</fieldset>
 	<fieldset>
-		<label for="comment">Commentaire :</label><textarea id="comment" placeholder="Un commentaire ?"></textarea>
+		<label for="comment">Commentaire :</label><textarea id="comment" placeholder="Un commentaire ?" name="comments"></textarea>
 	</fieldset>
 	<fieldset>
 		<legend>Réservation</legend>
@@ -42,4 +19,3 @@
 		<button type="submit">Commandez</button>
 	</fieldset>
 </form>
->>>>>>> ce7d60b1c284890ddb93e2cd6b57e6c4ba7fc3ef
