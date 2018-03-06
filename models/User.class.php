@@ -8,6 +8,12 @@ class User
 	private $password;
 	private $email;
 
+	private $pdo;
+
+	public function __construct($pdo)
+	{
+		$this->pdo = $pdo;
+	}
 	// Méthodes (fonctions)
 	public function getId()// getter de id
 	{
@@ -17,13 +23,18 @@ class User
 	{
 		return $this->login;
 	}
+	public function setLogin($login)
+	{
+		if (strlen($login) < 2 || strlen($login) > 63)// strlen => str len => string length => taille de la chaine
+		{
+			throw new Exception("Taille du login invalide (Il doit être compris entre 2 et 63 caractères)");
+		}
+		else
+			$this->login = $login;
+	}
 	public function getHash()
 	{
 		return $this->password;
-	}
-	public function setLogin($login)
-	{
-		$this->login = $login;
 	}
 	public function verifPassword($password)
 	{
@@ -47,7 +58,10 @@ class User
 	}
 	public function setEmail($email)
 	{
-		$this->email = $email;
+		if (filter_var($email, FILTER_VALIDATE_EMAIL))
+			$this->email = $email;
+		else
+			throw new Exception("Email invalide");
 	}
 }
 

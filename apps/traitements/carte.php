@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['action']))
 {
-	$manager = new DeliveryManager($pdo);
+	$manager = new MenuManager($pdo);
 	$action = $_POST['action'];
 	if ($action == 'create')
 	{

@@ -2,47 +2,69 @@
 class Booking
 {
 	private $id;
-	private $customerName;
-	private $customerTel;
+	private $customer_name;
+	private $customer_tel;
 	private $date;
 	private $comments;
 
+	private $pdo;
 
+
+	public function __construct($pdo)
+	{
+		$this->pdo = $pdo;
+	}
 	public function getId()
 	{
 		return $this->id;
 	}
-
 	public function getCustomerName()
 	{
-		return $this->customerName;
+		return $this->customer_name;
 	}
-	public function setCustomer_name($customerName)
+	public function setCustomerName($customer_name)
 	{
-		$this->customerName = $customerName;
+		if (strlen($customer_name) < 2 || strlen($customer_name) > 63)// strlen => str len => string length => taille de la chaine
+		{
+			throw new Exception("Taille du nom invalide (Il doit être compris entre 2 et 63 caractères)");
+		}
+		else
+			$this->customer_name = $customer_name;
 	}	
-
 	public function getCustomerTel()
 	{
-		return $this->customerTel;
+		return $this->customer_tel;
 	}
-	public function setCustomerTel($customerTel)
+	public function setCustomerTel($customer_tel)
 	{
-		$this->customerTel = $customerTel;
+		if (strlen($customer_tel) < 8 || strlen($customer_tel) > 63)// strlen => str len => string length => taille de la chaine
+		{
+			throw new Exception("Taille du téléphone invalide (Il doit être compris entre 8 et 63 caractères)");
+		}
+		else
+			$this->customer_tel = $customer_tel;
 	}	
-
-	public function getDate()
-	{
-		return $this->date;
-	}
-
-		public function getComments()
+	public function getComments()
 	{
 		return $this->comments;
 	}
 	public function setComments($comments)
 	{
-		$this->comments = $comments;
+		if (strlen($comments) > 511)// strlen => str len => string length => taille de la chaine
+		{
+			throw new Exception("Taille du commentaire invalide (Il doit être inférieur à 511 caractères)");
+		}
+		else
+			$this->comments = $comments;
+	}
+	public function getDate()
+	{
+		return $this->date;
+	}
+	public function setDate($date)
+	{
+		// if
+		$this->date = $date;
 	}
 }
 ?>
