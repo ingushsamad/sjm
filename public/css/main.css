@@ -181,7 +181,7 @@ main {
 }
 
 #presentation article {
-  flex: 0 1 30%;
+  flex: 1 1 auto;
   background-color: #6E523E;
   padding: 1em;
 }
@@ -195,6 +195,11 @@ main {
 
 #presentation article p {
   color: white;
+}
+
+#presentation article:first-child {
+  flex: 2 1 auto;
+  margin-right: 1em;
 }
 
 .thumb {
