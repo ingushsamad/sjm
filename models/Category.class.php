@@ -3,7 +3,9 @@ class Category
 {
 	private $id;
 	private $name;
+
 	private $pdo;
+	private $products;
 
 	public function __construct($pdo)
 	{
@@ -19,14 +21,21 @@ class Category
 	}
 	public function setName($name)
 	{
-		$this->name = $name;
+		if (strlen($name) < 2 || strlen($name) > 63)// strlen => str len => string length => taille de la chaine
+		{
+			throw new Exception("Nom de la catégorie invalide (Il doit être compris entre 2 et 63 caractères)");
+		}
+		else
+			$this->name = $name;
 	}
 	public function getProducts()
 	{
-		$manager = new ProductsManager($this->pdo);
-		$products = $manager->findByCategory($this->id);
-		return $products;
+		if ($this->products === null)
+		{
+			$manager = new ProductsManager($this->pdo);
+			$this->products = $manager->findByCategory($this);
+		}
+		return $this->products;
 	}
-
 }
 ?>

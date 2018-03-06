@@ -25,11 +25,7 @@ class Date
 	{
 		$this->date;
 	}
-	public function setMiday()
-	{
-		$this->miday;
-	}
-	public function setMiday($name)
+	public function setMiday($miday)
 	{
 		$this->miday = $miday;
 	}	
