@@ -123,7 +123,7 @@ class Delivery
 			if ($loc_product->getId() === $product->getId())
 			{
 				array_splice($this->products, $pos, 1);
-				return $this->getProducts()
+				return $this->getProducts();
 			}
 		}
 	}
