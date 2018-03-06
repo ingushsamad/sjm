@@ -36,7 +36,7 @@ class DateManager
 			if ($d->format('w') != 1 && $d->format('w') != 2) // comparaison des jours non travaillés
 			{
 				$o = $this->checkDate($d->format('Y-m-d'));
-			
+				
 				if ($o && $d->format('w') != 3 ) // date présente dans la base (donc = congés)
 				{
 					if ($o->getMiday() != 0)
@@ -60,6 +60,15 @@ class DateManager
 						];
 						$i++;
 					}
+				}
+				else if (empty($o) && $d->format('w') == 3)
+				{
+					$listdate[] = [
+						'date' => $d->format('d/n/Y'),
+						'jour' => $d->format('w'),
+						'conges' => '1'
+					];
+					$i++;
 				}
 				else
 				{
