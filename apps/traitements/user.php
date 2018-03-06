@@ -5,7 +5,6 @@ if (isset($_GET['page']) && $_GET['page'] == 'logout')
 	header('Location: index.php');
 	exit;
 }
-$manager = new UserManager($pdo);
 
 
 if (isset($_POST['action']))
