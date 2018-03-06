@@ -1,15 +1,10 @@
-<<<<<<< HEAD:models/CarteManager.class.php
-=======
 <?php
+
 class MenuManager
 {
-	// Pour corriger le bug de pdo inexistant il faut :
-	// Ajouter $pdo aux propriétés des managers
-	// Ajouter le constructeur aux managers
-	// Modifier chaque création de Manager $xxx = new XxxManager(); par $xxx = new XxxManager($pdo);
 	private $pdo;
 
-	public function __construct($pdo)// new MenuManager($pdo);
+	public function __construct($pdo)
 	{
 		$this->pdo = $pdo;
 	}
@@ -43,17 +38,24 @@ class MenuManager
 		$id = $this->pdo->lastInsertId();
 		return $this->find($id);
 	}
-	public function remove(Article $article)// <= type hinting
+	public function remove(Menu $menu)
 	{
 		$query = $this->pdo->prepare("DELETE FROM menu WHERE id=?");
-		$query->execute([$article->getId()]);
+		$query->execute([$menu->getId()]);
 	}
-	public function save(Article $article)// <= type hinting
+	public function save(Menu $menu)// <= type hinting
 	{
-		$query = $this->pdo->prepare("UPDATE menu SET title=?, content=?, image=?, id_author=? WHERE id=?");
-		$query->execute([$article->getTitle(), $article->getContent(), $article->getImage(), $article->getIdAuthor(), $article->getId()]);
-		return $this->find($article->getId());
+		$query = $this->pdo->prepare("UPDATE menu SET order_number=?, order_date=?, customer_id=? WHERE order_number=?");
+		$query->execute([$menu->getOrderNumber(), $menu->getOrderDate(), $menu->getCustomerId()]);
+		$products = $menu->getProducts();
+		$query_reset = $this->pdo->prepare("DELETE FROM menu WHERE order_number=?");
+		$query_reset->prepare([$menu->getOrderNumber()]);
+		$query_save = $this->pdo->prepare("INSERT INTO menu (order_Number, products_id) VALUES(?, ?)");
+		foreach ($menu->getProducts() AS $product)
+		{
+			$query_save->execute([$menu->getOrderNumber(), $product->getProductId()]);
+		}
+		return $this->find($menu->getOrderNumber());
 	}
 }
 ?>
->>>>>>> 8c091ff08704d80f18eadb253cb9ab9b27f6033b:models/MenuManager.class.php
