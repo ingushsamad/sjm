@@ -33,7 +33,6 @@ class CategoryManager
 		return $this->find($id);
 	}
 
-
 	public function remove(Category $category)
 	{
 		$query = $this->pdo->prepare("DELETE FROM category WHERE id = ?");

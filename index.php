@@ -44,6 +44,8 @@ try
 	require('apps/traitements/user.php');
 	require('apps/traitements/carte.php');
 	require('apps/traitements/comment.php');
+    require('apps/traitements/delivery.php');
+    require('apps/traitements/booking.php');
 	require('apps/base.php');
 }
 catch (PDOException $pdoException)

@@ -2,15 +2,21 @@
 class Delivery
 {
 	private $id;
-	private $customerName;
-	private $customerTel;
-	private $customerAdress;
-	private $customerCity;
+	private $customer_name;
+	private $customer_tel;
+	private $customer_address;
+	private $customer_city;
 	private $comments;
 	private $date;
-	private $productId;
+
+	private $pdo;
+	private $products;
 
 
+	public function __construct($pdo)
+	{
+		$this->pdo = $pdo;
+	}
 
 	public function getId()
 	{
@@ -19,38 +25,58 @@ class Delivery
 
 	public function getCustomerName()
 	{
-		return $this->customerName;
+		return $this->customer_name;
 	}
 	public function setCustomerName($customer_name)
 	{
-		$this->customerName = $customerName;
+		if (strlen($customer_name) < 2 || strlen($customer_name) > 63)// strlen => str len => string length => taille de la chaine
+		{
+			throw new Exception("Taille du nom invalide (Il doit être compris entre 2 et 63 caractères)");
+		}
+		else
+			$this->customer_name = $customer_name;
 	}	
 
 	public function getCustomerTel()
 	{
-		return $this->customerTel;
+		return $this->customer_tel;
 	}
 	public function setCustomerTel($customer_tel)
 	{
-		$this->customerTel = $customerTel;
+		if (strlen($customer_tel) < 8 || strlen($customer_tel) > 63)// strlen => str len => string length => taille de la chaine
+		{
+			throw new Exception("Taille du téléphone invalide (Il doit être compris entre 8 et 63 caractères)");
+		}
+		else
+			$this->customer_tel = $customer_tel;
 	}	
 
 	public function getCustomerAddress()
 	{
-		return $this->customerAdress;
+		return $this->customer_address;
 	}
 	public function setCustomerAddress($customer_address)
 	{
-		$this->customer_address = $customer_address;
+		if (strlen($customer_address) < 8 || strlen($customer_address) > 63)// strlen => str len => string length => taille de la chaine
+		{
+			throw new Exception("Taille de l'adresse invalide (Il doit être compris entre 8 et 63 caractères)");
+		}
+		else
+			$this->customer_address = $customer_address;
 	}	
 
 	public function getCustomerCity()
 	{
-		return $this->customerCity;
+		return $this->customer_city;
 	}
-	public function setCustomerCity($customerCity)
+	public function setCustomerCity($customer_city)
 	{
-		$this->customerCity = $customerCity;
+		if (strlen($customer_city) < 2 || strlen($customer_city) > 63)// strlen => str len => string length => taille de la chaine
+		{
+			throw new Exception("Taille de la ville invalide (Il doit être compris entre 2 et 63 caractères)");
+		}
+		else
+			$this->customer_city = $customer_city;
 	}	
 
 	public function getComments()
@@ -59,21 +85,47 @@ class Delivery
 	}
 	public function setComments($comments)
 	{
-		$this->comments = $comments;
+		if (strlen($comments) > 511)// strlen => str len => string length => taille de la chaine
+		{
+			throw new Exception("Taille du commentaire invalide (Il doit être inférieur à 511 caractères)");
+		}
+		else
+			$this->comments = $comments;
 	}
-
-	public function getProductId()
-	{
-		return $this->productId;
-	}
-	public function setProductId($productId)
-	{
-		$this->productId = $productId;
-	}	
-
-		public function getDate()
+	public function getDate()
 	{
 		return $this->date;
+	}
+	public function setDate($date)
+	{
+		// if
+		$this->date = $date;
+	}
+	public function getProducts()
+	{
+		if ($this->products === null)
+		{
+			$manager = new ProductsManager($this->pdo);
+			$this->products = $manager->findByDelivery($this);
+		}
+		return $this->products;
+	}
+	public function addProduct(Products $product)
+	{
+		$this->getProducts();
+		$this->products[] = $product;
+	}
+	public function removeProduct(Products $product)
+	{
+		$this->getProducts();
+		foreach ($this->products AS $pos => $loc_product)
+		{
+			if ($loc_product->getId() === $product->getId())
+			{
+				array_splice($this->products, $pos, 1);
+				return $this->getProducts();
+			}
+		}
 	}
 }
 ?>

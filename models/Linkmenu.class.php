@@ -3,13 +3,31 @@ class Linkmenu
 {
 	private $menu_id;
 	private $product_id;
-	private $product_category_id;
+	private $pdo;
 
-
-
-	public function getId()
+	public function __construct($pdo)
 	{
-		return $this->id;
+		$this->pdo = $pdo;
+	}
+
+	public function getMenuId()
+	{
+		return $this->menu_id;
+	}
+
+	public function setMenuId()
+	{
+		$this->menu_id;
+	}
+
+	public function getProductId()
+	{
+		return $this->product_id;
+	}
+
+	public function setProductId()
+	{		
+		$this->product_id;
 	}
 }
 ?>

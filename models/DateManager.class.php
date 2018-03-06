@@ -1,6 +1,5 @@
 <?php
 
-
 class DateManager
 {
 	private $pdo;
@@ -11,11 +10,17 @@ class DateManager
 	}
 	public function findAll()
 	{
-		$query = $this->pdo->query("SELECT * FROM dates where date > now() and DATE_ADD(date, INTERVAL 30 DAY)");
-		$date = $query->fetchAll(PDO::FETCH_CLASS, 'Date', [$this->pdo]);
-		return $date;
+		$query = $this->pdo->query("SELECT * FROM dates");
+		$dates = $query->fetchAll(PDO::FETCH_CLASS, 'Date', [$this->pdo]);
+		return $dates;
 	}
-	public function checkDate($date)
+	public function findNextMonth()
+	{
+		$query = $this->pdo->query("SELECT * FROM dates where date > now() and DATE_ADD(date, INTERVAL 30 DAY)");
+		$dates = $query->fetchAll(PDO::FETCH_CLASS, 'Date', [$this->pdo]);
+		return $dates;
+	}
+	public function findDate($date)
 	{
 		$query = $this->pdo->prepare("SELECT * FROM dates where date = ?");
 		$query->execute([$date]);
@@ -35,7 +40,7 @@ class DateManager
 
 			if ($d->format('w') != 1 && $d->format('w') != 2) // comparaison des jours non travaillés
 			{
-				$o = $this->checkDate($d->format('Y-m-d'));
+				$o = $this->findDate($d->format('Y-m-d')); //stockage de la date au format SQL 
 				
 				if ($o && $d->format('w') != 3 ) // date présente dans la base (donc = congés)
 				{
@@ -81,7 +86,23 @@ class DateManager
 				}
 			}
 		}
-		return $listdate;
+		return $listdate; //array
 	}
 
+	public function addDate($date,$miday)
+	{
+		$user = new Date($this->pdo);
+		$user->setDate($date);
+		$user->setMiday($miday);
+		$query = $this->pdo->prepare("INSERT INTO dates (date, miday) VALUES(?, ?)");
+		$query->execute([$user->getDate(), $user->getMiday()]);
+		$date = $this->pdo->lastInsertId();
+		return $this->findDate($date);
+	}
+
+	public function rmDate(Date $date)
+	{
+		$query = $this->pdo->prepare("DELETE FROM users WHERE date = ?");
+		$query->execute([$date->getDate()]);
+	}
 }
