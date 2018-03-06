@@ -12,13 +12,13 @@ class UserManager
 	{
 		$query = $this->pdo->prepare("SELECT * FROM users WHERE id=?");
 		$query->execute([$id]);
-		$user = $query->fetchObject('User');
+		$user = $query->fetchObject('User', [$this->pdo]);
 		return $user;
 	}
 	public function findAll()
 	{
 		$query = $this->pdo->query("SELECT * FROM users");
-		$users = $query->fetchAll(PDO::FETCH_CLASS, 'User');
+		$users = $query->fetchAll(PDO::FETCH_CLASS, 'User', [$this->pdo]);
 		return $users;
 	}
 	public function findById($id)
@@ -29,19 +29,19 @@ class UserManager
 	{
 		$query = $this->pdo->prepare("SELECT * FROM users WHERE login=?");
 		$query->execute([$login]);
-		$user = $query->fetchObject('User');
+		$user = $query->fetchObject('User', [$this->pdo]);
 		return $user;
 	}
 	public function findByEmail($email)// getByEmail
 	{
 		$query = $this->pdo->prepare("SELECT * FROM users WHERE email=?");
 		$query->execute([$email]);
-		$user = $query->fetchObject('User');
+		$user = $query->fetchObject('User', [$this->pdo]);
 		return $user;
 	}
 	public function create($login, $password, $email)
 	{
-		$user = new User(/*$this->db*/);
+		$user = new User($this->pdo);
 		$user->setLogin($login);
 		$user->setPassword($password);
 		$user->setEmail($email);
