@@ -17,7 +17,7 @@ class MenuManager
 	}
 	public function findAll()
 	{
-		$query = $this->pdo->query("SELECT * FROM menu");
+		$query = $this->pdo->query("SELECT * FROM menu ORDER BY category_id");
 		$menu = $query->fetchAll(PDO::FETCH_CLASS, 'Menu', [$this->pdo]);
 		return $menu;
 	}

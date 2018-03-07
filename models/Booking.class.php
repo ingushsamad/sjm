@@ -6,6 +6,7 @@ class Booking
 	private $customer_tel;
 	private $date;
 	private $comments;
+	private $nbr;
 
 	private $pdo;
 
@@ -65,5 +66,14 @@ class Booking
 	{
 		$date = date('Y-m-d H:i:s', strtotime($date));
 		$this->date = $date;
+	}
+
+	public function getNbr()
+	{
+		return $this->nbr;
+	}
+	public function setNbr($nbr)
+	{
+		$this->nbr = $nbr;
 	}
 }
