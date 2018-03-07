@@ -152,6 +152,35 @@ main {
 	height: 100%;
 }
 
+table {
+	width: 100%;
+	border: 0;
+	border-collapse: collapse;
+	thead {
+		tr {
+			border-bottom: 1px solid $color-primary-2;
+		}
+	}
+	tbody {
+		tr {
+			border-bottom: 1px solid $color-primary-2;
+			td {
+				padding: 0.1em 1em;
+			}
+			td:nth-child(2) {
+				text-align: right;
+			}
+			td:nth-child(3) {
+				text-align: right;
+				input {
+					border: 0;
+					width: 3em;
+				}
+			}
+		}
+	}
+}
+
 #presentation {
 	display: flex;
 	justify-content: space-between;
@@ -183,48 +212,6 @@ main {
 	background-color: white;
 	padding: 3px;
 	box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
-}
-
-#goldbook,
-#booking,
-#delivery {
-	fieldset {
-		border: 1px solid $color-primary-3;
-		border-radius: 1em;
-		width: 60%;
-		margin: 0 auto 1em;
-		display: flex;
-		justify-content: flex-start;
-		flex-direction: column;
-		flex-wrap: wrap;
-		p {
-			display: flex;
-		}
-		legend {
-			font-family: 'Cinzel Decorative', cursive;
-		}
-		label {
-			text-align: right;
-			padding-right: 1em;
-		}
-		input {
-			border: 1px solid $color-primary-3;
-		}
-		textarea {
-			border: 1px solid $color-primary-3;
-		}
-		button {
-			border: 1px solid $color-primary-3;
-		}
-	}
-}
-
-#goldbook
-{
-	width: 50%;
-	textarea {
-		width: 50%;
-	}
 }
 
 #error {
@@ -272,5 +259,16 @@ main {
 			}
 
 		}
+	}
+}
+
+.flex {
+	display: flex;
+	justify-content: space-between;
+	div:nth-child(1) {
+		flex: 0 1 70%;
+	}
+	div:nth-child(2) {
+		flex: 0 1 20%;
 	}
 }
