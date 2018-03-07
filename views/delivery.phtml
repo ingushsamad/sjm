@@ -1,49 +1,49 @@
-
 <h2>Livraison</h2>
 <form method="POST" id="delivery">
-<table border="1">
-	<thead>
-		<tr>
-			<th>Produits</th>
-			<th>Prix Unitaire</th>
-			<th>Quantité à commander</th>
-		</tr>
-	</thead>
-<tbody>
-	<?php
-	foreach ($products as $product)
-	{
-	?>
-	<tr>
-		<td><?php echo $product->getName(); ?></td>
-		<td><?php echo $product->getPrice(); ?> €</td>
-		<td><input type="text" name="commande[<?php echo $product->getId(); ?>]"></td>
-
-	</tr>
-	<?php
-	}
-	?>
-	
-	
-</tbody>
-</table>
-
 	<input type="hidden" name="action" value="delivery">
-	<fieldset>
-		<legend>Coordonnées</legend>
-		<label for="name">Nom :</label><input type="text" name="customer_name" placeholder="Votre nom" id="name">
-		<label for="tel">Tél :</label><input type="text" name="customer_tel" placeholder="Votre numéro de téléphone" id="tel">
-		<label for="address">Adresse :</label><input type="text" name="customer_address" placeholder="Votre adresse" id="address">
-		<label for="city">Ville :</label><input type="text" name="customer_city" placeholder="Votre ville" id="city">
-	</fieldset>
-	<fieldset>
-		<label for="comment">Commentaire :</label><textarea id="comment" placeholder="Un commentaire ?" name="comments"></textarea>
-	</fieldset>
-	<fieldset>
-		<legend>Livraison</legend>
-		<label for="date">Date et heure de livraison :</label><input type="datetime-local" name="date" id="date" value="date">
-	</fieldset>
-	<fieldset>
-		<button type="submit">Faite vous livrez ! </button>
-	</fieldset>
+	<div style="width:100%">
+		<div style="height:600px;overflow:auto;width:50%;display:inline-block">
+			<table border="1">
+				<thead>
+					<tr>
+						<th>Produits</th>
+						<th>Prix Unitaire</th>
+						<th>Quantité à commander</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($products as $product) : ?>
+					<tr>
+						<td><?php echo $product->getName(); ?></td>
+						<td><?php echo $product->getPrice(); ?> €</td>
+						<td><input type="text" name="commande[<?=$product->getId()?>]"></td>
+					</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+		<div style="height:600px;width:49%;float:right">
+			<fieldset style="width:100%">
+				<legend>Coordonnées</legend>
+				<label for="name">Nom :</label><input type="text" name="customer_name" placeholder="Votre nom" id="name">
+				<label for="tel">Tél :</label><input type="text" name="customer_tel" placeholder="Votre numéro de téléphone" id="tel">
+				<label for="address">Adresse :</label><input type="text" name="customer_address" placeholder="Votre adresse" id="address">
+				<label for="city">Ville :</label><input type="text" name="customer_city" placeholder="Votre ville" id="city">
+			</fieldset>
+			<fieldset style="width:100%">
+				<label for="comment">Commentaire :</label><textarea id="comment" placeholder="Un commentaire ?" name="comments"></textarea>
+			</fieldset>
+			<fieldset style="width:100%">
+				<legend>Livraison</legend>
+				<label for="date">Date et heure de livraison :</label>
+				<select name="date">
+					<?php foreach ($dates as $date) echo '<option>'.$date.'</option>';?>
+				</select>
+			</fieldset>
+			<br><br><br>
+			<hr>
+			<br><br><br>
+			<center><button type="submit" style="background-color:green;border:none;border-radius:50px;height:50px;width:200px">Faite vous livrez ! </button></center>
+		</div>
+	</div>
 </form>

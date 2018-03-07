@@ -25,7 +25,7 @@ class DeliveryManager
 	{
 		return $this->find($id);
 	}
-	public function create($customer_name, $customer_tel, $customer_address, $customer_city, $comments, $date)
+	public function create($customer_name, $customer_tel, $customer_address, $customer_city, $comments, $date, $list)
 	{
 		$delivery = new Delivery($this->pdo);
 		$delivery->setCustomerName($customer_name);
@@ -37,6 +37,17 @@ class DeliveryManager
 		$query = $this->pdo->prepare("INSERT INTO delivery (customer_name, customer_tel, customer_address, customer_city, comments, date) VALUES(?, ?, ?, ?, ?, ?)");
 		$query->execute([$delivery->getCustomerName(), $delivery->getCustomerTel(), $delivery->getCustomerAddress(), $delivery->getCustomerCity(), $delivery->getComments(), $delivery->getDate()]);
 		$id = $this->pdo->lastInsertId();
+		$query_link = $this->pdo->prepare("INSERT INTO linkdelivery (delivery_id, products_id) VALUES(?, ?)");
+		foreach($list AS $product)
+		{
+			$quantity = $product['quantity'];
+			$id_product = $product['id'];
+			while ($quantity > 0)
+			{
+				$query_link->execute([$id, $id_product]);
+				$quantity--;
+			}
+		}
 		return $this->find($id);
 	}
 	public function remove(Delivery $delivery)// <= type hinting

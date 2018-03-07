@@ -21,6 +21,13 @@ class ProductsManager
 		$products = $query->fetchAll(PDO::FETCH_CLASS, 'Products', [$this->pdo]);
 		return $products;
 	}
+	public function findByDelivery(Delivery $delivery)
+	{
+		$query = $this->pdo->prepare("SELECT products.*, COUNT(products.id) AS quantity FROM products LEFT JOIN linkdelivery ON linkdelivery.products_id=products.id WHERE linkdelivery.delivery_id=? GROUP BY products.id");
+		$query->execute([$delivery->getId()]);
+		$products = $query->fetchAll(PDO::FETCH_CLASS, 'Products', [$this->pdo]);
+		return $products;
+	}
 	public function findByCategory(Category $category)
 	{
 		$query = $this->pdo->prepare("SELECT * FROM products WHERE category_id = ? ORDER BY name");
