@@ -205,6 +205,37 @@ table tbody tr td:nth-child(3) input {
   width: 3em;
 }
 
+fieldset {
+  border: 1px solid #200F02;
+  border-radius: 1em;
+  background-color: #B08769;
+  color: #3E230F;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+fieldset legend {
+  color: white;
+  font-weight: 900;
+}
+
+fieldset div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+fieldset div input {
+  margin: 0.5em 0 1em;
+}
+
+fieldset textarea {
+  border-radius: 1em;
+  padding: 0.5em;
+}
+
 #presentation {
   display: flex;
   justify-content: space-between;
