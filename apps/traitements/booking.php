@@ -2,10 +2,11 @@
 //            var_dump($_POST);
 if (isset($_POST['action']))
 {
-	$manager = new BookingManager($pdo);
-	$action = $_POST['action'];
-	if ($action == 'delivery')
+	
+	if ($action == 'booking')
 	{
+		$manager = new BookingManager($pdo);
+		$action = $_POST['action'];
 		if (isset($_POST['customer_name'], $_POST['customer_tel'], $_POST['customer_address'], $_POST['customer_city'], $_POST['comments'], $_POST['date'],$_POST['product_id'] ))
 		{
            $cutomer_name = $_POST['customer_name'];

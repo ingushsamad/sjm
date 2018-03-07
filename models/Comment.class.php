@@ -44,7 +44,7 @@ class Comment
 		if ($note >= 0 && $note <= 5)
 			$this->note = $note;
 		else
-			throw new Exception("Votre note doit être comprise entre 0 et 5");
+			throw new Exception("Votre note doit être comprise entre 0 et 5 étoiles");
 	}	
 
 	public function getAuthor()
