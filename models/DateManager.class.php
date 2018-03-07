@@ -26,7 +26,7 @@ class DateManager
 		$query->execute([$date]);
 		return $query->fetchObject('Date', [$this->pdo]);
 	}
-	public function listDate()
+	public function genDate()
 	{
 		$d = new DateTime(); // aujourd'hui
 		$interval = new DateInterval('P1D'); // interval d'un jour
@@ -47,7 +47,7 @@ class DateManager
 					if ($o->getMiday() != 0)
 					{
 						$listdate[] = [
-							'date' => $d->format('d/n/Y'),
+							'date' => $d->format('d/m/Y'),
 							'jour' => $d->format('w'),
 							'conges' => $o->getMiday()
 						];
@@ -59,7 +59,7 @@ class DateManager
 					if ($o->getMiday() == 1)
 					{
 						$listdate[] = [
-							'date' => $d->format('d/n/Y'),
+							'date' => $d->format('d/m/Y'),
 							'jour' => $d->format('w'),
 							'conges' => '1'
 						];
@@ -69,7 +69,7 @@ class DateManager
 				else if (empty($o) && $d->format('w') == 3)
 				{
 					$listdate[] = [
-						'date' => $d->format('d/n/Y'),
+						'date' => $d->format('d/m/Y'),
 						'jour' => $d->format('w'),
 						'conges' => '1'
 					];
@@ -78,7 +78,7 @@ class DateManager
 				else
 				{
 					$listdate[] = [
-						'date' => $d->format('d/n/Y'),
+						'date' => $d->format('d/m/Y'),
 						'jour' => $d->format('w'),
 						'conges' => '0'
 					];
@@ -87,6 +87,45 @@ class DateManager
 			}
 		}
 		return $listdate; //array
+	}
+
+	public function listDate()
+	{
+		$dates = $this->genDate();
+		$i = 0;
+		$res = Array();
+		
+		foreach ($dates as $date)
+		{
+    		if ($date['conges'] == 0)
+    		{
+			
+    		    for ($i = 11; $i < 14;$i++)
+    		    {
+    		        $res[] = $date['date'].' '.$i.':00';
+    		    }
+    		    for ($i = 18; $i < 24;$i++)
+    		    {
+    		        $res[] = $date['date'].' '.$i.':00';
+    		    }
+    		}
+    		else if ($date['conges'] == 1)
+    		{
+    		    for ($i = 18; $i < 24;$i++)
+    		    {
+    		        $res[] = $date['date'].' '.$i.':00';
+    		    }
+    		}
+    		else if ($date['conges'] == 2)
+    		{
+    		    for ($i = 11; $i < 14;$i++)
+    		    {
+    		        $res[] = $date['date'].' '.$i.':00';
+    		    }
+    		}
+
+		}
+		return $res;
 	}
 
 	public function addDate($date,$miday)

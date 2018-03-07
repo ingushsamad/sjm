@@ -1,9 +1,8 @@
 <?php
-
 try
 {
 	session_start();
-	
+
 	if (is_file("apps/config.php"))
 	{
 		require("apps/config.php");
@@ -21,7 +20,7 @@ try
 
 	$error = '';
 	$page = 'home';
-	$access = ['home', 'carte','delivery','booking', 'goldbook'];
+	$access = ['home', 'carte','delivery','booking', 'goldbook', 'logout'];
 	
 	if (isset($_GET['page']))
 	{

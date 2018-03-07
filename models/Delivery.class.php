@@ -98,8 +98,14 @@ class Delivery
 	}
 	public function setDate($date)
 	{
-		// if
-		$this->date = $date;
+		$full = explode(' ', $date);
+		$date = explode('/', $full[0]);
+		$time = explode(':', $full[1]);
+		// FROM 08/3/2018 11:00
+		// TO 2018-03-08 00:00:00
+		if ($date[1] < 10)
+			$date[1] = '0'.$date[1];
+		$this->date = $date[2].'-'.$date[1].'-'.$date[0].' '.$time[0].':'.$time[1].':00';
 	}
 	public function getProducts()
 	{

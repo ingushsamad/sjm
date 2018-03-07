@@ -43,7 +43,7 @@ class User
 	}
 	public function setPassword($password)// http://php.net/manual/fr/function.password-hash.php
 	{
-		if (strlen($password) > 9)// strlen = str len = string length = taille de la chaine
+		if (strlen($password) > 4)// strlen = str len = string length = taille de la chaine
 		{
 			$this->password = password_hash($password, PASSWORD_DEFAULT, ["cost"=>11]);
 		}

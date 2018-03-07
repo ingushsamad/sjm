@@ -5,7 +5,6 @@ if (isset($_GET['page']) && $_GET['page'] == 'logout')
 	header('Location: index.php');
 	exit;
 }
-$manager = new UserManager($pdo);
 
 
 if (isset($_POST['action']))
@@ -20,6 +19,7 @@ if (isset($_POST['action']))
 
 			$manager = new UserManager($pdo);
 			$user = $manager->findByLogin($login);
+			
 			if ($user)
 			{
 				if ($user->verifPassword($password))
