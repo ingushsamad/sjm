@@ -305,4 +305,12 @@ table tbody tr td:nth-child(3) input {
 .flex div:nth-child(2) {
   flex: 0 1 20%;
 }
+
+.yellow {
+  color: goldenrod;
+}
+
+.black {
+  color: black;
+}
 /*# sourceMappingURL=main.css.map */
