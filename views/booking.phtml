@@ -13,7 +13,16 @@
 	</fieldset>
 	<fieldset>
 		<legend>Réservation</legend>
-		<label for="date">Date de réservation :</label><input type="datetime-local" name="date" id="date" value="">
+		<select>
+		<?php
+		for ($i = 0; $i < count($dates); $i++)
+		{
+		?>
+			<option><?=$dates[$i]?></option>
+		<?php
+		}
+		?>
+		</select>
 	</fieldset>
 	<fieldset>
 		<button type="submit">Commandez</button>

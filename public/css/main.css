@@ -181,7 +181,7 @@ main {
 }
 
 #presentation article {
-  flex: 1 1 auto;
+  flex: 0 1 20%;
   background-color: #6E523E;
   padding: 1em;
 }
@@ -198,7 +198,7 @@ main {
 }
 
 #presentation article:first-child {
-  flex: 2 1 auto;
+  flex: 0 1 80%;
   margin-right: 1em;
 }
 
@@ -209,6 +209,7 @@ main {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
+#goldbook fieldset,
 #booking fieldset,
 #delivery fieldset {
   border: 1px solid #3E230F;
@@ -221,35 +222,49 @@ main {
   flex-wrap: wrap;
 }
 
+#goldbook fieldset p,
 #booking fieldset p,
 #delivery fieldset p {
   display: flex;
 }
 
+#goldbook fieldset legend,
 #booking fieldset legend,
 #delivery fieldset legend {
   font-family: 'Cinzel Decorative', cursive;
 }
 
+#goldbook fieldset label,
 #booking fieldset label,
 #delivery fieldset label {
   text-align: right;
   padding-right: 1em;
 }
 
+#goldbook fieldset input,
 #booking fieldset input,
 #delivery fieldset input {
   border: 1px solid #3E230F;
 }
 
+#goldbook fieldset textarea,
 #booking fieldset textarea,
 #delivery fieldset textarea {
   border: 1px solid #3E230F;
 }
 
+#goldbook fieldset button,
 #booking fieldset button,
 #delivery fieldset button {
   border: 1px solid #3E230F;
+}
+
+#goldbook {
+  width: 50%;
+}
+
+#goldbook textarea {
+  width: 50%;
 }
 
 #error {

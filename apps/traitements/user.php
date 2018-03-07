@@ -19,6 +19,7 @@ if (isset($_POST['action']))
 
 			$manager = new UserManager($pdo);
 			$user = $manager->findByLogin($login);
+			
 			if ($user)
 			{
 				if ($user->verifPassword($password))

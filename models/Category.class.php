@@ -33,7 +33,7 @@ class Category
 		if ($this->products === null)
 		{
 			$manager = new ProductsManager($this->pdo);
-			$this->products = $manager->findByCategory($this->id);
+			$this->products = $manager->findByCategory($this);
 		}
 		return $this->products;
 	}
