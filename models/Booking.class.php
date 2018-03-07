@@ -63,8 +63,7 @@ class Booking
 	}
 	public function setDate($date)
 	{
-		// if
+		$date = date('Y-m-d H:i:s', strtotime($date));
 		$this->date = $date;
 	}
 }
-?>

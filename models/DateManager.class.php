@@ -47,7 +47,7 @@ class DateManager
 					if ($o->getMiday() != 0)
 					{
 						$listdate[] = [
-							'date' => $d->format('d/n/Y'),
+							'date' => $d->format('d/m/Y'),
 							'jour' => $d->format('w'),
 							'conges' => $o->getMiday()
 						];
@@ -59,7 +59,7 @@ class DateManager
 					if ($o->getMiday() == 1)
 					{
 						$listdate[] = [
-							'date' => $d->format('d/n/Y'),
+							'date' => $d->format('d/m/Y'),
 							'jour' => $d->format('w'),
 							'conges' => '1'
 						];
@@ -69,7 +69,7 @@ class DateManager
 				else if (empty($o) && $d->format('w') == 3)
 				{
 					$listdate[] = [
-						'date' => $d->format('d/n/Y'),
+						'date' => $d->format('d/m/Y'),
 						'jour' => $d->format('w'),
 						'conges' => '1'
 					];
@@ -78,7 +78,7 @@ class DateManager
 				else
 				{
 					$listdate[] = [
-						'date' => $d->format('d/n/Y'),
+						'date' => $d->format('d/m/Y'),
 						'jour' => $d->format('w'),
 						'conges' => '0'
 					];
