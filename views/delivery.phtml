@@ -16,7 +16,31 @@
 					<tr>
 						<td><?php echo $product->getName(); ?></td>
 						<td><?php echo $product->getPrice(); ?> €</td>
-						<td><input type="text" name="commande[<?=$product->getId()?>]"></td>
+						<td><!-- <input type="text" name="commande[<?=$product->getId()?>]"> -->
+							<select name="commande[<?=$product->getId()?>]">
+								<option>-</option>
+       							<option>1</option>
+						        <option>2</option>
+						        <option>3</option>
+						        <option>4</option>
+						        <option>5</option>
+						        <option>6</option>
+						        <option>7</option>
+						        <option>8</option>
+						        <option>9</option>
+						        <option>10</option>
+						        <!-- <option>11</option>
+						        <option>12</option>
+						        <option>13</option>
+						        <option>14</option>
+						        <option>15</option>
+						        <option>16</option>
+						        <option>17</option>
+						        <option>18</option>
+						        <option>19</option>
+						        <option>20</option>
+ -->							</select>
+						</td>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>
@@ -41,7 +65,6 @@
 				</select>
 			</fieldset>
 			<br><br><br>
-			<hr>
 			<br><br><br>
 			<center><button type="submit" style="background-color:green;border:none;border-radius:50px;height:50px;width:200px">Faite vous livrez ! </button></center>
 		</div>
