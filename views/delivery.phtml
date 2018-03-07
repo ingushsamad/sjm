@@ -1,6 +1,34 @@
+
 <h2>Livraison</h2>
 <form method="POST" id="delivery">
-	<input type="hidden" name="delivery" value="delivery">
+<table border="1">
+	<thead>
+		<tr>
+			<th>Produits</th>
+			<th>Prix Unitaire</th>
+			<th>Quantité à commander</th>
+		</tr>
+	</thead>
+<tbody>
+	<?php
+	foreach ($products as $product)
+	{
+	?>
+	<tr>
+		<td><?php echo $product->getName(); ?></td>
+		<td><?php echo $product->getPrice(); ?> €</td>
+		<td><input type="text" name="commande[<?php echo $product->getId(); ?>]"></td>
+
+	</tr>
+	<?php
+	}
+	?>
+	
+	
+</tbody>
+</table>
+
+	<input type="hidden" name="action" value="delivery">
 	<fieldset>
 		<legend>Coordonnées</legend>
 		<label for="name">Nom :</label><input type="text" name="customer_name" placeholder="Votre nom" id="name">

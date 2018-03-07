@@ -1,9 +1,8 @@
 <?php
-
 try
 {
 	session_start();
-	
+
 	if (is_file("apps/config.php"))
 	{
 		require("apps/config.php");
