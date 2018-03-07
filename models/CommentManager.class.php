@@ -22,6 +22,12 @@ class CommentManager
 		$comments = $query->fetchAll(PDO::FETCH_CLASS, 'Comment', [$this->pdo]);
 		return $comments;
 	}
+	public function findLast()
+	{
+		$query = $this->pdo->query("SELECT * FROM comments ORDER BY date DESC LIMIT 5");
+		$comments = $query->fetchAll(PDO::FETCH_CLASS, 'Comment', [$this->pdo]);
+		return $comments;
+	}
 
 	/*public function findByIdAuthor($id)
 	{
