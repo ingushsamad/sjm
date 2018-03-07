@@ -9,16 +9,17 @@ if (isset($_POST['action']))
 	{
 		// Etape 1 : Vérifier la présence de tous les champs nécessaires
 		// title, content, image, author
-		if (isset($_POST['content'], $_POST['author'], $_POST['note']))// isset : http://php.net/manual/fr/function.isset.php : is set : est définie
+		if (isset($_POST['email'], $_POST['content'], $_POST['author'], $_POST['note']))// isset : http://php.net/manual/fr/function.isset.php : is set : est définie
 		{
 			// Etape 2 : Vérifier la validité des champs
 			
 			$content = $_POST['content'];
 			$author = $_POST['author'];
 			$note = $_POST['note'];
+			$email = $_POST['email'];
 			//$author = $_SESSION['id'];
 
-			$manager->create($content, $author, $note);
+			$manager->create($content, $note, $author, $email);
 			// $note = $_POST['note'];
 			// if (...)
 			// Etape 3 : Traitement

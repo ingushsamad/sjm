@@ -20,7 +20,7 @@ try
 
 	$error = '';
 	$page = 'home';
-	$access = ['home', 'carte','delivery','booking','logout'];
+	$access = ['home', 'carte','delivery','booking', 'goldbook', 'logout'];
 	
 	if (isset($_GET['page']))
 	{

@@ -25,15 +25,18 @@ class BookingManager
 	{
 		return $this->find($id);
 	}
-	public function create($customer_name, $customer_tel, $comments, $date)
+	public function create($customer_name, $customer_tel, $comments, $date, $nbr)
 	{
 		$booking = new Booking($this->pdo);
 		$booking->setCustomerName($customer_name);
 		$booking->setCustomerTel($customer_tel);
 		$booking->setComments($comments);
 		$booking->setDate($date);
-		$query = $this->pdo->prepare("INSERT INTO booking (customer_name, customer_tel,comments, date) VALUES(?, ?, ?, ?)");
-		$query->execute([$booking->getCustomerName(), $booking->getCustomerTel(), $booking->getComments(), $booking->getDate()]);
+		$booking->setNbr($nbr);
+		var_dump($booking->getNbr());
+
+		$query = $this->pdo->prepare("INSERT INTO booking (customer_name, customer_tel, comments, date, nbr) VALUES(?, ?, ?, ?, ?)");
+		$query->execute([$booking->getCustomerName(), $booking->getCustomerTel(), $booking->getComments(), $booking->getDate(), $booking->getNbr()]);
 		$id = $this->pdo->lastInsertId();
 		return $this->find($id);
 	}
@@ -44,8 +47,8 @@ class BookingManager
 	}
 	public function save(Booking $booking)// <= type hinting
 	{
-		$query = $this->pdo->prepare("UPDATE booking SET customer_name=?, customer_tel=?,, comments=?, date=? WHERE id=?");
-		$query->execute([$booking->getCustomerName(), $booking->getCustomerTel(), $booking->getComments(), $booking->getDate(), $booking->getId()]);
+		$query = $this->pdo->prepare("UPDATE booking SET customer_name=?, customer_tel=?,, comments=?, date=?, nbr=? WHERE id=?");
+		$query->execute([$booking->getCustomerName(), $booking->getCustomerTel(), $booking->getComments(), $booking->getDate(), $booking->getNbr(), $booking->getId()]);
 		return $this->find($booking->getId());
 	}
 }
