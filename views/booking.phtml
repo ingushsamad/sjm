@@ -1,30 +1,25 @@
-<h2>Réservation</h2>
 <form method="POST" id="booking">
 	<input type="hidden" name="action" value="booking">
 	<fieldset>
-		<legend>Coordonnées</legend>
-		<label for="name">Nom :</label><input type="text" name="customer_name" placeholder="Votre nom" id="name">
-		<label for="tel">Tél :</label><input type="text" name="customer_tel" placeholder="Votre numéro de téléphone" id="tel">
-		<label for="nbr">Nombre de personnes :</label><input type="text" name="nbr" placeholder="Combien êtes-vous ?" id="nbr">
-	</fieldset>
-	<fieldset>
-		<legend>Laissez un commentaire</legend>
+		<legend>Réservez chez nous</legend>
+		<div>
+			<label for="name">Nom :</label><input type="text" name="customer_name" placeholder="Votre nom" id="name">
+			<label for="tel">Tél :</label><input type="text" name="customer_tel" placeholder="Votre numéro de téléphone" id="tel">
+			<label for="nbr">Nombre de personnes :</label><input type="text" name="nbr" placeholder="Combien êtes-vous ?" id="nbr">
+		</div>
 		<textarea id="comment" placeholder="Un commentaire ?" name="comments"></textarea>
-	</fieldset>
-	<fieldset>
-		<legend>Réservez</legend>
+		<div>
 		<select name="date">
-		<?php
-		for ($i = 0; $i < count($dates); $i++)
-		{
-		?>
-			<option><?=$dates[$i]?></option>
-		<?php
-		}
-		?>
-		</select>
-	</fieldset>
-	<fieldset>
-		<button type="submit">Commandez</button>
+			<?php
+				for ($i = 0; $i < count($dates); $i++)
+				{
+			?>
+				<option><?=$dates[$i]?></option>
+			<?php
+				}
+			?>
+			</select>
+			<button type="submit">Commandez</button>
+		</div>
 	</fieldset>
 </form>

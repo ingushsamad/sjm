@@ -1,12 +1,16 @@
+<<<<<<< HEAD
 <!---  GOLDBOOK   mettre en commun a toutes les pages ---->
 <h2 align="center" style = "color:gray">Laisser votre commentaire...</h2>
+=======
+>>>>>>> 54d7fcdb5eccd02885ae1537a3b590f4ccc59b81
 <form method="POST" id="comments">
 	<input type="hidden" name="action" value="createcomments">
 
 	<fieldset>
-		<legend>Coordonnées</legend>
+		<legend>Laissez un commentaire</legend>
 		<label for="name">Nom : </label><input type="text" name="author" placeholder="Votre nom" id="author"><br><br>
 		<label for="email">Email: </label><input type="text" name="email" placeholder="Votre email" id="email"><br>
+<<<<<<< HEAD
 
 	</fieldset><br>
 
@@ -25,6 +29,12 @@
 <br>
 		<p align="center"><button type="submit">Poster votre commentaire</button></p>
 
+=======
+		<label for="note">Note de 0 à 5 : </label><input type="number" min="0" max="5" name="note" placeholder="Note sur 5">		
+		<textarea name="content" id="content" placeholder="Laissez votre commentaire... "></textarea>
+		<button type="submit">Poster votre commentaire</button>
+	</fieldset>
+>>>>>>> 54d7fcdb5eccd02885ae1537a3b590f4ccc59b81
 </form>
 
 

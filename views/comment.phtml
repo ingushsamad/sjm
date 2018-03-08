@@ -1,4 +1,5 @@
 <div class = "commentcontainer">
+<<<<<<< HEAD
 	<h3>Avis client</h3>
 
 		<p>Le  <?=$comment->getDate()?>  <br>
@@ -9,4 +10,9 @@
 
 
 	
+=======
+	<p>Le <?=$comment->getDate()?></p>
+	<p><?=$comment->getAuthor()?> a écrit : <?=$comment->getContent()?></p>
+	<p align="right"> Note : <?php require('apps/note.php'); ?> </p>
+>>>>>>> 54d7fcdb5eccd02885ae1537a3b590f4ccc59b81
 </div>

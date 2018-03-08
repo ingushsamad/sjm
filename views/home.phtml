@@ -2,12 +2,19 @@
 	<img src="public/img/restaurant1.jpg" alt="Image du restaurant" class="thumb">
 	<section id="presentation">
 		<article>
-			<h3>Oran</h3>
-			<p>Restaurant gastronomique de qualité propose pour ses repas de midi et de soir des plats d'execptions algériens.</p>
+			<div>
+				<?php
+				 require('apps/booking.php');
+				?>
+			</div>
+			<h3>Donner le meilleur de soi pour cuisiner un couscous savoureux à Paris</h3>
+			<p>Depuis 1979, nous cuisinons dans la passion et la tradition algérienne. Avec nos épices et notre savoir-faire, nos délicieuses préparation ont fait notre renommée. Avec des tarifs raisonnables, nous sommes toujours restés accessibles et populaires.</p>
+
+			<p>Tous les lundi soirs, c’est scène ouverte: Le Rest'Oran se transforme en un gigantesque « bœuf musical » pour des musiciens Nord Africains.</p>
 		</article>
 		<article>
 			<h3>Commentaires</h3>
-			<?php require ('apps/goldbook.php'); ?>
+			<?php require('apps/goldbook.php'); ?>
 		</article>
 	</section>
 	

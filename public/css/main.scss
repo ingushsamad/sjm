@@ -181,6 +181,33 @@ table {
 	}
 }
 
+fieldset {
+	border: 1px solid $color-primary-4;
+	border-radius: 1em;
+	background-color: $color-primary-1;
+	color: $color-primary-3;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 1em;
+	legend {
+		color: white;
+		font-weight: 900;
+	}
+	div {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		input {
+			margin: 0.5em 0 1em;
+		}
+	}
+	textarea {
+		border-radius: 1em;
+		padding: 0.5em;
+	}
+}
+
 #presentation {
 	display: flex;
 	justify-content: space-between;
@@ -271,4 +298,12 @@ table {
 	div:nth-child(2) {
 		flex: 0 1 20%;
 	}
+}
+
+.yellow {
+	color: goldenrod;
+}
+
+.black {
+	color: black;
 }
